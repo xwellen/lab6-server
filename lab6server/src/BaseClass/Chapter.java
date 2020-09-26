@@ -1,6 +1,8 @@
 package BaseClass;
 
-public class Chapter {
+import java.io.Serializable;
+
+public class Chapter implements Serializable {
     private String name; //Поле не может быть null, Строка не может быть пустой
     private String world; //Поле не может быть null
 

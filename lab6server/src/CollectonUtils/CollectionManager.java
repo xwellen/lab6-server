@@ -54,13 +54,13 @@ public class CollectionManager {
 
 
 
-    public static void remove_by_id(long marineID) {
+    public  void remove_by_id(long marineID) {
         linkedList.forEach(spaceMarine -> {
             if (spaceMarine.getId() == marineID) { linkedList.remove(spaceMarine); }
         });
     }
 
-    public static void clear() {
+    public  void clear() {
         linkedList.clear();
     }
 
@@ -79,7 +79,7 @@ public class CollectionManager {
         return "Из коллекции удалены элементы с ID: " + res.toString().replaceAll("[\\[\\]]", "");
     }
 
-    public static void update(SpaceMarine marineToUpdate, long elementId) {
+    public  void update(SpaceMarine marineToUpdate, long elementId) {
         linkedList.forEach(spaceMarine -> {
             if (spaceMarine.getId() == elementId) {
                 spaceMarine.setName(marineToUpdate.getName());
@@ -93,24 +93,24 @@ public class CollectionManager {
         });
     }
 
-    public static void remove_first() {
+    public  void remove_first() {
         if (linkedList.size() > 0) { linkedList.remove(0); }
     }
 
-    public static String average_of_health(){
+    public  String average_of_health(){
         String msg = "";
         if (linkedList.size() > 0){
             long healthSum = 0;
             for (SpaceMarine spaceMarine : linkedList) healthSum += spaceMarine.getHealth();
-            System.out.println("Среднее значение здоровья: " + healthSum/(double)linkedList.size());
+            msg = "Среднее значение здоровья: " + healthSum/(double)linkedList.size();
         }
         else {
-            System.out.println("Коллекция пуста");
+            msg = "Коллекция пуста";
         }
         return msg;
     }
 
-    public static String filter_by_health(long targetHealth){
+    public  String filter_by_health(long targetHealth){
         String msg = "";
         if (linkedList.size() > 0){
             int count = 0;
@@ -128,7 +128,7 @@ public class CollectionManager {
         return msg;
     }
 
-    public static String count_greater_than_weapon_type(Weapon weapon){
+    public  String count_greater_than_weapon_type(Weapon weapon){
         String res = "";
         if (linkedList.size() > 0){
             int count = 0;
@@ -154,7 +154,7 @@ public class CollectionManager {
         else throw new NullPointerException("Коллекция пуста");
     }
 
-    public static void add_if_min(SpaceMarine spaceMarineToAdd){
+    public  void add_if_min(SpaceMarine spaceMarineToAdd){
         //String msg = "";
         try {
             SpaceMarine minElement = CollectionManager.getMinElement();
@@ -168,7 +168,7 @@ public class CollectionManager {
         }
     }
 
-    public static void addJsonObject(SpaceMarine spaceMarine) {
+    public  void addJsonObject(SpaceMarine spaceMarine) {
         spaceMarine.setId(IDGenerator.generateID((int) spaceMarine.getId()));
         linkedList.add(spaceMarine);
     }

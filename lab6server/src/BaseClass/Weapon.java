@@ -1,6 +1,8 @@
 package BaseClass;
 
-public enum Weapon {
+import java.io.Serializable;
+
+public enum Weapon implements Serializable {
     BOLTGUN,
     MELTAGUN,
     COMBI_FLAMER,

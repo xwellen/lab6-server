@@ -1,6 +1,8 @@
 package BaseClass;
 
-public enum MeleeWeapon {
+import java.io.Serializable;
+
+public enum MeleeWeapon implements Serializable {
     LIGHTING_CLAW,
     POWER_BLADE,
     POWER_FIST
